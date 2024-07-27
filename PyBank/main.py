@@ -1,3 +1,15 @@
+"""
+This script analyzes a dataset of financial records to calculate key metrics:
+
+1. The total number of months included in the dataset.
+2. The net total amount of "Profit/Losses" over the entire period.
+3. The changes in "Profit/Losses" over the entire period, and then the average of those changes.
+4. The greatest increase in profits (date and amount) over the entire period.
+5. The greatest decrease in profits (date and amount) over the entire period.
+
+The script processes the dataset to extract and compute these values, providing a comprehensive summary of the financial performance over time.
+"""
+
 #Import OS and CSV Module
 import os
 import csv 
@@ -53,12 +65,24 @@ for row in returns:
 #and then the average of those changes'
 average_change = total_change / len(month)
 
+#results to command line
+print('Financial Analysis\n'
+					'-------------------------------\n'
+					f'Total Months: {len(month)}\n'
+					f'Total: ${grand_total}\n'
+					f'Average Change: ${round(average_change,2)}\n'
+					f'Greatest Increase in Profits: {month[high_index]} (${returns[high_index]})\n'
+					f'Greatest Decrease is Profits: {month[low_index]} (${returns[low_index]})\n'
+		)
+
+
+
 
 #Write results to the file
-with open(analysis_txt, 'w', newline='') as output_file:
+with open(analysis_txt, 'w', newline='') as output:
 	
 	#write results
-	output_file.write('Financial Analysis\n'
+	output.write('Financial Analysis\n'
 					'-------------------------------\n'
 					f'Total Months: {len(month)}\n'
 					f'Total: ${grand_total}\n'
