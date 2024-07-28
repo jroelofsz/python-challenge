@@ -52,13 +52,11 @@ with open(budget_data_csv, 'r') as source:
 			changes.append(change)
 
 			#if change > largest change we've recorded, record the new one
-			if change > high_change:
-				high_change = change
+			if change > high_month[1]:
 				high_month[0] = row[0]
 				high_month[1] = change
 			#if change < lowest change we've recorded, record the new one
-			elif change < low_change:
-				low_change = change
+			elif change < low_month[1]:
 				low_month[0] = row[0]
 				low_month[1] = change
 			
