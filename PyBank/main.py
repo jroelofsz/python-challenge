@@ -27,7 +27,7 @@ high_month = ["",0]
 low_month = ["",0]
 
 
-#Open the budget_data_csv file as source
+#Open the source data file as read
 with open(budget_data_csv, 'r') as source:
 	csvreader = csv.reader(source,delimiter=',')
 	header = next(csvreader)
@@ -38,7 +38,7 @@ with open(budget_data_csv, 'r') as source:
 	high_change = 0
 
 	for row in csvreader:
-		#append the values to the
+		#set the current value variable
 		current_value = int(row[1])
 		#month counter
 		months += 1
@@ -84,7 +84,7 @@ print('Financial Analysis\n'
 )
 
 
-#Write results to the file
+#open the file with write permissions
 with open(analysis_txt, 'w', newline='') as output:
 	
  	#write results
