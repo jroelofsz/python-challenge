@@ -11,11 +11,13 @@ The script processes the dataset to extract and compute these values, providing 
 """
 
 #Import Modules
-import os, csv
+import csv
+from pathlib import Path
+
 
 #path variables
-election_data_csv = os.path.join(".","Resources","election_data.csv")
-analysis_txt = os.path.join(".","analysis","election_results.txt")
+election_data_csv = Path('./Resources/election_data.csv')
+analysis_txt = Path('./analysis/election_results.txt')
 
 #2 lists for tracking candidates and their vote count
 #each candidate will be assigned their own index. 
